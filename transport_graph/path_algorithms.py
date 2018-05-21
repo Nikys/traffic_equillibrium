@@ -24,7 +24,7 @@
 #
 
 from operator import itemgetter
-from transport_graph.prioritydictionary import priorityDictionary
+from transport_graph import priorityDictionary
 from math import inf
 
 ## @package YenKSP

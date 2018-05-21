@@ -1,5 +1,5 @@
 from math import exp
-from transport_graph.path_algorithms import min_paths, mincost3
+from transport_graph import min_paths, mincost3
 from transport_graph import TransportGraph, TransportEdgeData
 from correspondence_matrix import corresp_matrix
 from flow_optimize import flow_optimize
