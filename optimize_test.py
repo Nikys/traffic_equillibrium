@@ -3,6 +3,8 @@ from transport_graph import min_paths, mincost3
 from transport_graph import TransportGraph, TransportEdgeData
 from correspondence_matrix import corresp_matrix
 from flow_optimize import flow_optimize
+from projecting_linear import LinearWorker
+from projecting_sparse import SparseWorker
 
 S = [0,1,2,3,4]
 D = [16,18,20,22,24]
@@ -43,7 +45,7 @@ func_table = {pair:exp(-0.065*cost) for pair,cost in mcost.items()}
 rho_matrix = corresp_matrix(input_traffic=s_dict,output_traffic=d_dict,func_table=func_table)
 
 path_dict = {i:[p['path'] for p in path] for i,path in mpaths.items()}
-flow_optimize(graph=dict_pairs,corresp_matrix=rho_matrix,path_dict=path_dict,is_project_linear=False)
+flow_optimize(graph=dict_pairs,corresp_matrix=rho_matrix,path_dict=path_dict,worker=LinearWorker)
 
 for i,paths in path_dict.items():
     cost = 0
